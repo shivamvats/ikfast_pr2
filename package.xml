@@ -1,0 +1,33 @@
+<package>
+  <name>ikfast_pr2</name>
+  <version>1.0.0</version>
+  <description>ikfast_pr2</description>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/ikfast_pr2</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>angles</build_depend>
+  <build_depend>roscpp</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>angles</run_depend>
+  <run_depend>roscpp</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>kdl</test_depend> -->
+  <!-- <test_depend>angles</test_depend> -->
+  <!-- <test_depend>roscpp</test_depend> -->
+
+<export>
+    <cpp lflags="-L${prefix}/lib -likfast_pr2" cflags="-I${prefix}/include -O3 -g"/>
+</export>
+
+</package>
