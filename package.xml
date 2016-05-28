@@ -2,6 +2,7 @@
   <name>ikfast_pr2</name>
   <version>1.0.0</version>
   <description>ikfast_pr2</description>
+  <maintainer email="shivamvats.iitkgp@gmail.com">Shivam Vats</maintainer>
 
   <license>BSD</license>
 
