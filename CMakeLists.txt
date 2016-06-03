@@ -4,7 +4,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(ikfast_pr2)
 # Load catkin and all dependencies required for this package
 # TODO: remove all from COMPONENTS that are not catkin packages.
-find_package(catkin REQUIRED COMPONENTS orocos_kdl angles roscpp)
+find_package(catkin REQUIRED COMPONENTS  angles roscpp)
+find_package(orocos_kdl)
 find_package(Boost REQUIRED COMPONENTS thread)
 
 #uncomment if you have defined messages
@@ -25,7 +26,7 @@ find_package(Boost REQUIRED COMPONENTS thread)
 # catkin_package parameters: http://ros.org/doc/groovy/api/catkin/html/dev_guide/generated_cmake_api.html#catkin-package
 # TODO: fill in what other packages will need to use this package
 catkin_package(
-    DEPENDS kdl angles roscpp
+    DEPENDS orocos_kdl angles roscpp
     CATKIN_DEPENDS # TODO
     INCLUDE_DIRS include # TODO include
     LIBRARIES # TODO
@@ -68,8 +69,8 @@ add_library(${PROJECT_NAME} src/ikfast61.Transform6D.27_28_30_31_32_33_f29.cpp
 
 # CATKIN_MIGRATION: removed during catkin migration
 # rosbuild_add_boost_directories()
-include_directories(${Boost_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+include_directories(${orocos_kdl_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${orocos_kdl_LIBRARIES})
 
 #add_executable(testarm src/armtest.cpp src/arm.cpp)
 #target_link_libraries(testarm ${PROJECT_NAME})
